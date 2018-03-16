@@ -14,10 +14,10 @@ function LunchCheckController($scope) {
     } else {
       var numOfItems =  splitStringToArray($scope.menuitems).length;
       if ( numOfItems > 3 ) {
-        $scope.message = "Enjoy!";
+        $scope.message = "Too much!";
       }
       else if ( numOfItems > 0 && numOfItems < 4) {
-        $scope.message = "Too much!";
+        $scope.message = "Enjoy!";
       }
     }
   };
