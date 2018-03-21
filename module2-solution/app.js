@@ -34,6 +34,7 @@ function ShoppingListCheckOffService()  {
 
   service.buyItem = function(index) {
     var item = buyItems[index];
+    console.log(item);
     boughtItems.push(item);
     buyItems.splice(index, 1);
   };
