@@ -3,13 +3,26 @@
 
 angular.module('NarrowItDownApp',[])
   .controller('NarrowItDownController', NarrowItDownController)
-  .service('MenuSearchService', MenuSearchService);
+  .service('MenuSearchService', MenuSearchService)
+  .directive('foundItems', FoundItemsDirective);
+
+function FoundItemsDirective() {
+  var ddo = {
+    templateUrl: 'foundItems.html',
+    scope: {
+      list: '<foundItems',
+      onRemove: '&'
+    }
+  };
+  return ddo;
+}
 
 NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService) {
   var ctrl = this;
   ctrl.keyword = "";
   ctrl.found = [];
+
   ctrl.narrowItDown = function() {
     MenuSearchService.getMatchedMenuItems(ctrl.keyword)
     .then(function (response) {
@@ -17,6 +30,10 @@ function NarrowItDownController(MenuSearchService) {
       console.log("controller: " + ctrl.found[0].description);
     });
   };
+
+  ctrl.removeItem = function(itemIndex) {
+    MenuSearchService.removeItem(itemIndex);
+  }
 
 }
 
@@ -44,6 +61,10 @@ function MenuSearchService($http) {
       console.log("Error while retrieving the data.");
     });
   };
+
+  service.removeItem = function (itemIndex) {
+    foundItems.splice(itemIndex, 1);
+  }
 }
 
 })();
