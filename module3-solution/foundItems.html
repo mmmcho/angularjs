@@ -1,7 +1,7 @@
 <ul>
   <li ng-repeat="foundItem in foundItems">
-    {{foundItem.name}},{{ foundItem.short_name }},{{ foundItem.description }}
-    <button ng-click=onRemove({index: $index});">Don't want this one!</button>
+    {{foundItem.name}}, {{ foundItem.short_name }}, {{ foundItem.description }}
+    <button ng-click="onRemove({index: $index});">Don't want this one!</button>
   </li>
 </ul>
 <div class="error" ng-if="foundItems.length === 0">Nothing Found</div>
