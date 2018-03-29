@@ -5,7 +5,7 @@ input[type="text"] {
   width: 200px;
   float: left;
 }
-#list {
+found-items {
   float: left;
 }
 .narrow-button {

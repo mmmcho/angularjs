@@ -9,9 +9,8 @@
     <script src="app.js"></script>
   </head>
 <body>
-   <div class="container">
+   <div class="container" ng-controller="NarrowItDownController as ctrl">
     <h1>Narrow Down Your Chinese Menu Choice</h1>
-    <div id="list" ng-controller="NarrowItDownController as ctrl">
     <div class="form-group">
       <input type="text" placeholder="search term" class="form-control" ng-model="ctrl.keyword">
     </div>
@@ -23,7 +22,6 @@
     <!-- found-items should be implemented as a component
     <found-items found-items="ctrl.found" on-remove="ctrl.removeItem(index)"></found-items>
   -->
-    </div>
   </div>
 
 </body>
