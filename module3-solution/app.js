@@ -20,13 +20,15 @@ function FoundItemsDirective() {
 NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService) {
   var ctrl = this;
-  ctrl.found = [];
-
+  
   ctrl.narrowItDown = function() {
-    MenuSearchService.getMatchedMenuItems(ctrl.keyword)
-    .then(function (response) {
-      ctrl.found = response;
-    });
+    if (!ctrl.keyword) {
+      ctrl.keyword = "";
+    }
+      MenuSearchService.getMatchedMenuItems(ctrl.keyword)
+      .then(function (response) {
+        ctrl.found = response;
+      });
   };
 
   ctrl.removeItem = function(itemIndex) {
