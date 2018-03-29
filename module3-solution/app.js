@@ -26,7 +26,7 @@ function MenuSearchService($http) {
 
   service.getMatchedMenuItems = function (searchTerm) {
     var foundItems = [];
-    searchTerm = searchTerm.trim.toLowerCase();
+    searchTerm = searchTerm.trim().toLowerCase();
 
     return $http({
       method: "GET",
