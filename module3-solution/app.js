@@ -8,11 +8,11 @@ angular.module('NarrowItDownApp',[])
 
 function FoundItemsDirective() {
   var ddo = {
-    templateUrl: 'foundItems.html',
-    scope: {
-      foundItems: '<',
-      onRemove: '&'
-    }
+    templateUrl: 'foundItems.html'//,
+  //  scope: {
+  //    foundItems: '<',
+  //    onRemove: '&'
+  //  }
   };
   return ddo;
 }
