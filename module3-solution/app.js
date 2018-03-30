@@ -10,7 +10,7 @@ function FoundItemsDirective() {
   var ddo = {
     templateUrl: 'foundItems.html',
     scope: {
-      found: '<',
+      items: '<',
       onRemove: '&'
     }
   };
@@ -32,8 +32,8 @@ function NarrowItDownController(MenuSearchService) {
       }
   };
 
-  ctrl.removeItem = function(index) {
-    ctrl.found.splice(index, 1);
+  ctrl.removeItem = function(itemIndex) {
+    ctrl.found.splice(itemIndex, 1);
   };
 
 }

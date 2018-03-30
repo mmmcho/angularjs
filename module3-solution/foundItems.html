@@ -1,15 +1,15 @@
 <div class="container">
-  <div ng-if="found.length!=0" class="row" style="background-color:lavenderblush;">
+  <div ng-if="items.length" class="row" style="background-color:lavenderblush;">
     <div class="col-sm-2">Name</div>
     <div class="col-sm-1">Short Name</div>
     <div class="col-sm-5">Description</div>
     <div class="col-sm-4"></div>
   </div>
-  <div class="row" ng-repeat="item in found">
+  <div class="row" ng-repeat="item in items">
     <div class="col-sm-2">{{item.name}}</div>
     <div class="col-sm-1">{{ item.short_name }}</div>
     <div class="col-sm-5">{{ item.description }}</div>
-    <div class="col-sm-4"><button ng-click="onRemove({index: $index});">Don't want this one!</button></div>
+    <div class="col-sm-4"><button ng-click="onRemove({ind: $index});">Don't want this one!</button></div>
   </div>
 </div>
-<div ng-if="found.length===0">Nothing Found</div>
+<div ng-if="items.length===0">Nothing Found</div>
