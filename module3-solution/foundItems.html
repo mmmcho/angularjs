@@ -1,7 +1,9 @@
-<ul>
-  <li class="row" ng-repeat="item in found">
-    Name: {{item.name}}, Short Name: {{ item.short_name }}, Description: {{ item.description }}
-    <button ng-click="onRemove({index: $index});">Don't want this one!</button>
-  </li>
-</ul>
-<div>{{ctrl.message}}</div>
+<div class="container">
+  <div class="row" ng-repeat="item in found">
+    <div class="col-sm-2">{{item.name}}</div>
+    <div class="col-sm-1">{{ item.short_name }}</div>
+    <div class="col-sm-5">{{ item.description }}</div>
+    <div class="col-sm-4"><button ng-click="onRemove({index: $index});">Don't want this one!</button></div>
+  </div>
+</div>
+<div ng-if="found.length===0">Nothing Found</div>
