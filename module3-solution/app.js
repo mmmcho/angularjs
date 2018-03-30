@@ -20,7 +20,7 @@ function FoundItemsDirective() {
 NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService) {
   var ctrl = this;
-  var ctrl.keyword = "";
+  ctrl.keyword = "";
   ctrl.narrowItDown = function() {
       if (ctrl.keyword === "") {
         ctrl.found = [];
@@ -34,7 +34,7 @@ function NarrowItDownController(MenuSearchService) {
 
   ctrl.removeItem = function(index) {
     ctrl.found.splice(index, 1);
-  }
+  };
 
 }
 
@@ -48,7 +48,8 @@ function MenuSearchService($http) {
     return $http({
         method: "GET",
         url: "https://davids-restaurant.herokuapp.com/menu_items.json"
-      }).then(function (result) {
+      })
+      .then(function (result) {
 
         for (var i=0; i < result.data.menu_items.length; i++) {
           if (result.data.menu_items[i].description.toLowerCase().indexOf(searchTerm) !== -1) {
@@ -56,7 +57,8 @@ function MenuSearchService($http) {
           }
         }
         return foundItems;
-      }).catch(function (error) {
+      })
+      .catch(function (error) {
         console.log("Error while retrieving the data.");
       });
   };
