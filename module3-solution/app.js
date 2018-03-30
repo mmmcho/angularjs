@@ -43,7 +43,7 @@ function NarrowItDownController(MenuSearchService) {
 MenuSearchService.$inject = ['$http'];
 function MenuSearchService($http) {
   var service = this;
-  servic.getMatchedMenuItems = function (searchTerm) {
+  service.getMatchedMenuItems = function (searchTerm) {
     var foundItems = [];
     if (!searchTerm) {
 
