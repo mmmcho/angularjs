@@ -8,11 +8,11 @@ angular.module('NarrowItDownApp',[])
 
 function FoundItemsDirective() {
   var ddo = {
-    templateUrl: 'foundItems.html'//,
-  //  scope: {
-  //    foundItems: '<',
-  //    onRemove: '&'
-  //  }
+    templateUrl: 'foundItems.html',
+    scope: {
+      found: '<',
+      onRemove: '&'
+    }
   };
   return ddo;
 }
@@ -20,7 +20,7 @@ function FoundItemsDirective() {
 NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService) {
   var ctrl = this;
-  
+
   ctrl.narrowItDown = function() {
     if (!ctrl.keyword) {
       ctrl.keyword = "";
@@ -49,6 +49,7 @@ function MenuSearchService($http) {
       method: "GET",
       url: "https://davids-restaurant.herokuapp.com/menu_items.json"
     }).then(function (result) {
+
         for (var i=0; i < result.data.menu_items.length; i++) {
           if (result.data.menu_items[i].description.toLowerCase().indexOf(searchTerm) !== -1) {
             foundItems.push(result.data.menu_items[i]);
