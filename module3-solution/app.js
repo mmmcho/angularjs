@@ -31,8 +31,8 @@ function NarrowItDownController(MenuSearchService) {
       });
   };
 
-  ctrl.removeItem = function(itemIndex) {
-    ctrl.found.splice(itemIndex, 1);
+  ctrl.removeItem = function(index) {
+    ctrl.found.splice(index, 1);
   }
 
 }
