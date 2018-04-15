@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>My Info</h1>
+  <br/>
+  <div ng-show="{{myInfoCtrl.info.firstname!=undefined}}" class="container">
+    <div class="row">
+      <div class="col-sm-3">First Name</div>
+      <div class="col-sm-9">{{myInfoCtrl.info.firstname}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">Last Name</div>
+      <div class="col-sm-9">{{myInfoCtrl.info.lastname}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">Email</div>
+      <div class="col-sm-9">{{myInfoCtrl.info.email}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">Phone</div>
+      <div class="col-sm-9">{{myInfoCtrl.info.phone}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">Favorite dish (menu number)</div>
+      <div class="col-sm-9">
+        <p>{{myInfoCtrl.info.shortname}}</p>
+        <img class="img-responsive" width="250" height="150" ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.info.shortname}}.jpg" alt="{{myInfoCtrl.info.name}}">
+        <h3 class="menu-item-title">{{myInfoCtrl.info.name}}</h3>
+        <p class="menu-item-details">{{myInfoCtrl.info.description}}</p>
+    </div>
+
+    </div>
+  </div>
+  <div ng-show="{{myInfoCtrl.info.firstname===undefined}}" class="container">
+    Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
+  </div>
+</div>
